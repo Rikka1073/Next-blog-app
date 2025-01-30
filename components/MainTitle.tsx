@@ -2,7 +2,7 @@ import React from "react";
 
 const MainTitle = () => {
   return (
-    <div className="font-bold" data-testid="mainTitle">
+    <div className="font-bold text-amber-700" data-testid="mainTitle">
       おはよう
     </div>
   );
