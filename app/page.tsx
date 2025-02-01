@@ -33,15 +33,21 @@ const data = [
 
 export default function Page() {
   return (
-    <div>
-      <div>
+    <div className="container mx-auto">
+      <div className="flex flex-wrap gap-4">
         {data.map((item, index) => {
           return (
-            <div key={index}>
-              <div>{item.title}</div>
-              <div>{item.date}</div>
-              <div>{item.url}</div>
-              <div>{item.thumbnail}</div>
+            <div className="card bg-base-100 w-96 shadow-xl" key={index}>
+              <a href={item.url} target="_blank">
+                <figure>
+                  <img src={`${item.thumbnail}`} alt="Shoes" />
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title">Shoes!</h2>
+                  <div>{item.title}</div>
+                  <div>{item.date}</div>
+                </div>
+              </a>
             </div>
           );
         })}
