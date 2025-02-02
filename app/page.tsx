@@ -6,9 +6,11 @@ const thumbnail = "/img/QiitaThumbnail.png";
 
 export default function Page() {
   const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+
   useEffect(() => {
     const fetchQiita = async () => {
-      const res = await fetch("http://localhost:3000/api/qiita");
+      const res = await fetch(`http://localhost:3000/api/qiita?page=${page}`);
       const data = await res.json();
       console.log(data);
       setData(data);
