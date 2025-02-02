@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { getStaticProps } from "./api/microcms/getStaticProps";
 
 const thumbnail = "/img/QiitaThumbnail.png";
 
