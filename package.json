@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.0.0",
+    "dompurify": "^3.2.4",
     "microcms-js-sdk": "^3.1.2",
     "next": "latest",
     "postcss": "^8.5.1",
