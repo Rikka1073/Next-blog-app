@@ -7,19 +7,25 @@ const thumbnail = "/img/QiitaThumbnail.png";
 export default function Page() {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
+  const [artclieNumber, setArtclieNumber] = useState(6);
 
   useEffect(() => {
     const fetchQiita = async () => {
-      const res = await fetch(`http://localhost:3000/api/qiita?page=${page}`);
+      const res = await fetch(
+        `http://localhost:3000/api/qiita?page=${page}&per_page=${artclieNumber}`
+      );
       const data = await res.json();
       console.log(data);
       setData(data);
     };
     fetchQiita();
-  }, []);
+  }, [page]);
 
   const onclickMoreButton = () => {
     console.log("もっと見るボタンがクリックされました");
+    setPage((prev) => prev + 1);
+    // console.log("ページ数", page);
+    setArtclieNumber((prev) => prev + 6);
   };
 
   return (
