@@ -1,6 +1,6 @@
 import { createClient } from "microcms-js-sdk";
 
 export const client = createClient({
-  serviceDomain: "next-blog1073",
-  apiKey: "XReyPpZPWD60LtiLbiXBEhthfV1f8TIiRNwT",
+  serviceDomain: "cube-blog-1073",
+  apiKey: "6JKsJKuu2AOLuo1NtmHyin1CwYggP9NClxJt",
 });
