@@ -1,9 +1,8 @@
 "use client";
 
-// import DOMPurify from "dompurify";
-// import Link from "next/link";
 import { useEffect, useState } from "react";
 import { client } from "../libs/client";
+import Link from "next/link";
 
 const page = () => {
   const [blogs, setBlogs] = useState([]);
@@ -20,10 +19,6 @@ const page = () => {
     fetchCms();
   }, []);
 
-  // const sanitizeText = (html: string) => {
-  //   return DOMPurify.sanitize(html, { ALLOWED_TAGS: [] });
-  // };
-
   return (
     <div className="container mx-auto">
       <div className="p-8">
@@ -32,12 +27,12 @@ const page = () => {
             blogs.map((blog) => {
               return (
                 <div className="card bg-base-100 w-96 shadow-xl" key={blog.id}>
-                  <a href={blog.id}>
+                  <Link href={`/blog/${blog.id}`}>
                     <div className="card-body">
                       <div>{blog.title}</div>
                       <div>{blog.date}</div>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               );
             })}
