@@ -1,7 +1,10 @@
 import Link from "next/link";
 import React from "react";
 
-const Header = ({ url }) => {
+type HeaderProps = {
+  url: string;
+};
+const Header = ({ url }: HeaderProps) => {
   return (
     <header className="w-full border-b-2 border-gray-300  py-6">
       <div className="max-w-3xl mx-auto ">
