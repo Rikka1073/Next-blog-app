@@ -1,12 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import MoreButton from "../components/MoreButton";
-import Articlelist from "../components/Article/Articlelist";
+import MoreButton from "../MoreButton";
 
 const thumbnail = "/img/QiitaThumbnail.png";
 
-export default function Page() {
+const Articlelist = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [artclieNumber, setArtclieNumber] = useState(4);
@@ -31,12 +30,9 @@ export default function Page() {
       setArtclieNumber((prev) => prev + 6);
     }
   };
-
   return (
     <div className="container mx-auto">
-      <p>こんにちは</p>
-      <Articlelist />
-      {/* <div className="p-8">
+      <div className="p-8">
         <div className="flex flex-wrap gap-4">
           {data.map((item) => {
             return (
@@ -55,7 +51,9 @@ export default function Page() {
           })}
         </div>
       </div>
-      <MoreButton onclick={onclickMoreButton} text="もっと見る" page={page} limit={pageLimit} /> */}
+      <MoreButton onclick={onclickMoreButton} text="もっと見る" page={page} limit={pageLimit} />
     </div>
   );
-}
+};
+
+export default Articlelist;
