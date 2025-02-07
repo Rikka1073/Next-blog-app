@@ -12,7 +12,7 @@ export default function Page() {
 
   return (
     <div className="container mx-auto">
-      <Header url={undefined} />
+      <Header url={null} />
       <p>こんにちは</p>
       <Articlelist />
       {/* <div className="p-8">
