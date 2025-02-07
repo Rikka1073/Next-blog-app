@@ -1,18 +1,13 @@
+"use client";
+import { usePathname } from "next/navigation";
 import Articlelist from "../components/Article/Articlelist";
 import Header from "../components/parts/Header";
 
 export default function Page() {
-  // const onclickMoreButton = () => {
-  //   if (page <= pageLimit) {
-  //     console.log("もっと見るボタンがクリックされました");
-  //     setPage((prev) => prev + 1);
-  //     setArtclieNumber((prev) => prev + 6);
-  //   }
-  // };
-
+  const url = usePathname();
   return (
     <div className="container mx-auto">
-      <Header url={null} />
+      <Header url={url} />
       <p>こんにちは</p>
       <Articlelist />
       {/* <div className="p-8">
