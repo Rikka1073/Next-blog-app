@@ -1,29 +1,7 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Articlelist from "../components/Article/Articlelist";
 import Header from "../components/parts/Header";
 
-// const thumbnail = "/img/QiitaThumbnail.png";
-
 export default function Page() {
-  const [data, setData] = useState([]);
-  const [page, setPage] = useState(1);
-  const [artclieNumber, setArtclieNumber] = useState(4);
-  const pageLimit = 3;
-
-  useEffect(() => {
-    const fetchQiita = async () => {
-      const res = await fetch(
-        `http://localhost:3001/api/qiita?page=${page}&per_page=${artclieNumber}`
-      );
-      const data = await res.json();
-      console.log(data);
-      setData(data);
-    };
-    fetchQiita();
-  }, [page]);
-
   // const onclickMoreButton = () => {
   //   if (page <= pageLimit) {
   //     console.log("もっと見るボタンがクリックされました");
