@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import MoreButton from "../components/MoreButton";
 import Articlelist from "../components/Article/Articlelist";
+import Header from "../components/parts/Header";
 
-const thumbnail = "/img/QiitaThumbnail.png";
+// const thumbnail = "/img/QiitaThumbnail.png";
 
 export default function Page() {
   const [data, setData] = useState([]);
@@ -24,16 +24,17 @@ export default function Page() {
     fetchQiita();
   }, [page]);
 
-  const onclickMoreButton = () => {
-    if (page <= pageLimit) {
-      console.log("もっと見るボタンがクリックされました");
-      setPage((prev) => prev + 1);
-      setArtclieNumber((prev) => prev + 6);
-    }
-  };
+  // const onclickMoreButton = () => {
+  //   if (page <= pageLimit) {
+  //     console.log("もっと見るボタンがクリックされました");
+  //     setPage((prev) => prev + 1);
+  //     setArtclieNumber((prev) => prev + 6);
+  //   }
+  // };
 
   return (
     <div className="container mx-auto">
+      <Header url={undefined} />
       <p>こんにちは</p>
       <Articlelist />
       {/* <div className="p-8">
