@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import DOMPurify from "dompurify";
 import BlogLayout from "../../../components/blog/BlogLayout";
 import Image from "next/image";
-import BlogHeader from "../../../components/blog/BlogHeader";
+import Header from "../../../components/parts/Header";
 
 const page = () => {
   const [blogsData, setBlogsData] = useState([]);
@@ -40,7 +40,7 @@ const page = () => {
 
   return (
     <>
-      <BlogHeader url={null} />
+      <Header url={null} />
       <BlogLayout>
         {blogsData.map((data) => {
           return (
