@@ -6,7 +6,6 @@ import Link from "next/link";
 import BlogLayout from "../../components/parts/Layout";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import MoreButton from "../../components/MoreButton";
 import Header from "../../components/parts/Header";
 
 const page = () => {
@@ -18,7 +17,6 @@ const page = () => {
       const data = await client.get({
         endpoint: "blogs",
       });
-      console.log(data.contents);
       setBlogs(data.contents);
     };
     fetchCms();

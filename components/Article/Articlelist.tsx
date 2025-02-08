@@ -12,10 +12,6 @@ const thumbnail = "/img/QiitaThumbnail.png";
 
 const ArticleList = () => {
   const [data, setData] = useState([]);
-  // const [page, setPage] = useState(1);
-  // const [artclieNumber, setArtclieNumber] = useState(4);
-  // const pageLimit = 3;
-  // const url = Us
   const url = "/articles";
   console.log(typeof url);
   console.log(url);
@@ -30,13 +26,6 @@ const ArticleList = () => {
     fetchQiita();
   }, []);
 
-  // const onclickMoreButton = () => {
-  //   if (page <= pageLimit) {
-  //     console.log("もっと見るボタンがクリックされました");
-  //     setPage((prev) => prev + 1);
-  //     setArtclieNumber((prev) => prev + 6);
-  //   }
-  // };
   type item = {
     id: string;
     url: string;
