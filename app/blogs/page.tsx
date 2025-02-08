@@ -11,34 +11,24 @@ import Header from "../../components/parts/Header";
 
 const page = () => {
   const [blogs, setBlogs] = useState([]);
-  const [blogLimiy, setBlogLimit] = useState(3);
   const url = usePathname();
-  const blogPageLimit = 15;
 
   useEffect(() => {
     const fetchCms = async () => {
       const data = await client.get({
         endpoint: "blogs",
-        queries: { limit: blogLimiy },
       });
       console.log(data.contents);
       setBlogs(data.contents);
     };
     fetchCms();
-  }, [blogLimiy]);
-
-  const onclickMoreButton = () => {
-    console.log("もっと見るボタンがクリックされました");
-    setBlogLimit((prev) => prev + 3);
-    console.log(blogLimiy);
-  };
+  }, []);
 
   return (
     <>
       <Header url={url} />
-      {/* <h2 className="text-4xl mb-12 text-center">Blogs一覧</h2> */}
       <BlogLayout>
-        <h2 className="text-4xl mb-12 text-center">Blogs一覧</h2>
+        <h2 className="text-4xl mb-12 text-center">Blog一覧</h2>
         <div className="flex flex-wrap gap-4">
           {blogs &&
             blogs.map((blog) => {
@@ -62,12 +52,6 @@ const page = () => {
             })}
         </div>
       </BlogLayout>
-      {/* <MoreButton
-        onclick={onclickMoreButton}
-        text="もっと見る"
-        page={blogLimiy}
-        limit={blogPageLimit}
-      /> */}
     </>
   );
 };
