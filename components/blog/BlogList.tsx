@@ -5,33 +5,35 @@ import Image from "next/image";
 import Link from "next/link";
 import MoreButton from "../MoreButton";
 import { client } from "../../app/libs/client";
-import { usePathname } from "next/navigation";
 import Card from "../parts/Card";
 import Layout from "../parts/Layout";
+import { usePathname } from "next/navigation";
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
-  const [blogLimiy, setBlogLimit] = useState(3);
-  const url = usePathname();
-  const blogPageLimit = 15;
+  // const [blogLimiy, setBlogLimit] = useState(3);
+  // const blogPageLimit = 15;
+  const url = "/blogs";
+  console.log(typeof url);
+  console.log(url);
 
   useEffect(() => {
     const fetchCms = async () => {
       const data = await client.get({
         endpoint: "blogs",
-        queries: { limit: blogLimiy },
+        queries: { limit: 4 },
       });
       console.log(data.contents);
       setBlogs(data.contents);
     };
     fetchCms();
-  }, [blogLimiy]);
+  }, []);
 
-  const onclickMoreButton = () => {
-    console.log("もっと見るボタンがクリックされました");
-    setBlogLimit((prev) => prev + 3);
-    console.log(blogLimiy);
-  };
+  // const onclickMoreButton = () => {
+  //   console.log("もっと見るボタンがクリックされました");
+  //   setBlogLimit((prev) => prev + 3);
+  //   console.log(blogLimiy);
+  // };
 
   return (
     <>
@@ -46,6 +48,7 @@ const BlogList = () => {
                       src={blog.eyecatch?.url || "/no-image.png"}
                       width={384}
                       height={300}
+                      className="rounded-t-2xl"
                       alt=""
                     />
                     <div className="card-body">
@@ -56,12 +59,7 @@ const BlogList = () => {
               );
             })}
         </div>
-        <MoreButton
-          onclick={onclickMoreButton}
-          text="もっと見る"
-          page={blogLimiy}
-          limit={blogPageLimit}
-        />
+        <MoreButton url={url} />
       </Layout>
     </>
   );

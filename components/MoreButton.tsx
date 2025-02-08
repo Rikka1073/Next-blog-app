@@ -1,11 +1,16 @@
+import Link from "next/link";
 import React from "react";
 
-const MoreButton = ({ onclick, text, page, limit }) => {
+type Props = {
+  url: string;
+};
+
+const MoreButton = ({ url }: Props) => {
   return (
     <div className="flex justify-center">
-      <button onClick={onclick} className={`btn btn-wide ${page === limit ? "btn-disabled" : ""}`}>
-        {text}
-      </button>
+      <Link href={url} className="btn btn-wide">
+        もっと見る
+      </Link>
     </div>
   );
 };
