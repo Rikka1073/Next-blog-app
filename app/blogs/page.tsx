@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Header from "../../components/parts/Header";
 import Layout from "../../components/parts/Layout";
+import Card from "../../components/parts/Card";
 
 const page = () => {
   const [blogs, setBlogs] = useState([]);
@@ -31,21 +32,22 @@ const page = () => {
           {blogs &&
             blogs.map((blog) => {
               return (
-                <div className="card bg-base-100 w-96 shadow-xl" key={blog.id}>
+                <Card key={blog.id}>
                   <Link href={`/blogs/${blog.id}`}>
                     <div className="card-body">
-                      <h3 className="text-lg mb-4 font-bold">{blog.title}</h3>
-                      <div>
+                      <div className="h-[100px] mb-10">
                         <Image
                           src={blog.eyecatch?.url || "/no-image.png"}
                           width={384}
-                          height={300}
+                          height={200}
+                          className="items-end"
                           alt=""
                         />
                       </div>
+                      <h3 className="text-lg mb-4 font-bold">{blog.title}</h3>
                     </div>
                   </Link>
-                </div>
+                </Card>
               );
             })}
         </div>

@@ -31,7 +31,7 @@ const BlogList = () => {
             blogs.map((blog) => {
               return (
                 <Card key={blog.id}>
-                  <Link href={`/blog/${blog.id}`}>
+                  <Link href={`/blogs/${blog.id}`}>
                     <Image
                       src={blog.eyecatch?.url || "/no-image.png"}
                       width={384}

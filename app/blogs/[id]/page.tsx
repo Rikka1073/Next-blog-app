@@ -45,7 +45,7 @@ const page = () => {
         {blogsData.map((data) => {
           return (
             <div className="max-w-3xl mx-auto" key={data.id}>
-              <h2 className="text-4xl mb-12">Blogs</h2>
+              <h2 className="text-4xl mb-12">Blog</h2>
               <div className="mb-4">{formatDate(data.createdAt)}</div>
               <h3 className="text-2xl mb-4">{data.title}</h3>
               <div className="mb-8">
