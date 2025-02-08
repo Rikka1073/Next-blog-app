@@ -3,7 +3,7 @@ import { useParams } from "next/navigation";
 import { client } from "../../libs/client";
 import { useEffect, useState } from "react";
 import DOMPurify from "dompurify";
-import BlogLayout from "../../../components/blog/BlogLayout";
+import BlogLayout from "../../../components/parts/Layout";
 import Image from "next/image";
 import Header from "../../../components/parts/Header";
 

@@ -1,8 +1,9 @@
 "use client";
 import { usePathname } from "next/navigation";
-import Articlelist from "../components/Article/Articlelist";
+
 import Header from "../components/parts/Header";
 import BlogList from "../components/blog/BlogList";
+import ArticleList from "../components/Article/Articlelist";
 
 export default function Page() {
   const url = usePathname();
@@ -10,8 +11,7 @@ export default function Page() {
   return (
     <div className="container mx-auto">
       <Header url={url} />
-      <p>こんにちは</p>
-      <Articlelist />
+      <ArticleList />
       <BlogList />
     </div>
   );

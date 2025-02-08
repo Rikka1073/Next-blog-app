@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { client } from "../libs/client";
 import Link from "next/link";
-import BlogLayout from "../../components/blog/BlogLayout";
+import BlogLayout from "../../components/parts/Layout";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import MoreButton from "../../components/MoreButton";
@@ -36,6 +36,7 @@ const page = () => {
   return (
     <>
       <Header url={url} />
+      {/* <h2 className="text-4xl mb-12 text-center">Blogs一覧</h2> */}
       <BlogLayout>
         <h2 className="text-4xl mb-12 text-center">Blogs一覧</h2>
         <div className="flex flex-wrap gap-4">
