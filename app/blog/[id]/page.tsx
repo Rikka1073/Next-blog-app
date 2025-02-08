@@ -40,7 +40,7 @@ const page = () => {
 
   return (
     <>
-      <Header url={null} />
+      {/* <Header url={null} /> */}
       <BlogLayout>
         {blogsData.map((data) => {
           return (
