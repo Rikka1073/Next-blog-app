@@ -7,16 +7,10 @@ import MoreButton from "../MoreButton";
 import { client } from "../../app/libs/client";
 import Card from "../parts/Card";
 import Layout from "../parts/Layout";
-import { usePathname } from "next/navigation";
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
-  // const [blogLimiy, setBlogLimit] = useState(3);
-  // const blogPageLimit = 15;
   const url = "/blogs";
-  console.log(typeof url);
-  console.log(url);
-
   useEffect(() => {
     const fetchCms = async () => {
       const data = await client.get({
@@ -28,12 +22,6 @@ const BlogList = () => {
     };
     fetchCms();
   }, []);
-
-  // const onclickMoreButton = () => {
-  //   console.log("もっと見るボタンがクリックされました");
-  //   setBlogLimit((prev) => prev + 3);
-  //   console.log(blogLimiy);
-  // };
 
   return (
     <>
