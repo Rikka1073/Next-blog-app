@@ -13,9 +13,7 @@ const Articlelist = () => {
 
   useEffect(() => {
     const fetchQiita = async () => {
-      const res = await fetch(
-        `http://localhost:3001/api/qiita?page=${page}&per_page=${artclieNumber}`
-      );
+      const res = await fetch(`/api/qiita?page=${page}&per_page=${artclieNumber}`);
       const data = await res.json();
       console.log(data);
       setData(data);
