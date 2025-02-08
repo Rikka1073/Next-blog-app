@@ -35,7 +35,7 @@ const page = () => {
 
   return (
     <>
-      {/* <Header url={url} /> */}
+      <Header url={url} />
       <BlogLayout>
         <h2 className="text-4xl mb-12 text-center">Blogs一覧</h2>
         <div className="flex flex-wrap gap-4">

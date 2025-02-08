@@ -8,7 +8,7 @@ export default function Page() {
   console.log(url);
   return (
     <div className="container mx-auto">
-      {/* <Header url={url} /> */}
+      <Header url={url} />
       <p>こんにちは</p>
       <Articlelist />
     </div>
