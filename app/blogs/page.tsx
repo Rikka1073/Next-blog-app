@@ -62,12 +62,12 @@ const page = () => {
             })}
         </div>
       </BlogLayout>
-      <MoreButton
+      {/* <MoreButton
         onclick={onclickMoreButton}
         text="もっと見る"
         page={blogLimiy}
         limit={blogPageLimit}
-      />
+      /> */}
     </>
   );
 };
