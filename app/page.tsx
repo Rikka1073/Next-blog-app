@@ -8,7 +8,7 @@ import ArticleList from "../components/Article/Articlelist";
 export default function Page() {
   const url = usePathname();
   return (
-    <div className="container mx-auto">
+    <div className="bg-[#F1E9DA]">
       <Header url={url} />
       <ArticleList />
       <BlogList />
