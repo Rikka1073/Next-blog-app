@@ -7,7 +7,6 @@ import ArticleList from "../components/Article/Articlelist";
 
 export default function Page() {
   const url = usePathname();
-  console.log(url);
   return (
     <div className="container mx-auto">
       <Header url={url} />
