@@ -13,7 +13,13 @@ const Header = ({ url }: HeaderProps) => {
             TOP
           </Link>
           <Link
-            href="/blog"
+            href="/articles"
+            className={`hover:text-gray-400 ${url === "/articles" ? "hidden" : "block"}`}
+          >
+            Article
+          </Link>
+          <Link
+            href="/blogs"
             className={`hover:text-gray-400 ${url === "/blog" ? "hidden" : "block"}`}
           >
             Blog
