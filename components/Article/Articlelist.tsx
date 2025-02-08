@@ -2,10 +2,14 @@
 
 import { useEffect, useState } from "react";
 import MoreButton from "../MoreButton";
+import Card from "../parts/Card";
+import Layout from "../parts/Layout";
+import Link from "next/link";
+import Image from "next/image";
 
 const thumbnail = "/img/QiitaThumbnail.png";
 
-const Articlelist = () => {
+const ArticleList = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [artclieNumber, setArtclieNumber] = useState(4);
@@ -29,29 +33,24 @@ const Articlelist = () => {
     }
   };
   return (
-    <div className="container mx-auto">
-      <div className="p-8">
-        <div className="flex flex-wrap gap-4">
-          {data.map((item) => {
-            return (
-              <div className="card bg-base-100 w-70 shadow-xl rounded-2xl" key={item.id}>
-                <a href={item.url} target="_blank">
-                  <figure>
-                    <img src={thumbnail} alt="Shoes" className="rounded-2xl" />
-                  </figure>
-                  <div className="card-body">
-                    <div>{item.title}</div>
-                    <div>{item.date}</div>
-                  </div>
-                </a>
-              </div>
-            );
-          })}
-        </div>
+    <Layout>
+      <div className="flex flex-wrap gap-4 mb-8">
+        {data.map((item) => {
+          return (
+            <Card key={item.id}>
+              <Link href={item.url} target="_blank">
+                <Image src={thumbnail} width={384} height={300} className="rounded-2xl" alt="" />
+                <div className="card-body">
+                  <h3 className="text-md font-bold">{item.title}</h3>
+                </div>
+              </Link>
+            </Card>
+          );
+        })}
       </div>
       <MoreButton onclick={onclickMoreButton} text="もっと見る" page={page} limit={pageLimit} />
-    </div>
+    </Layout>
   );
 };
 
-export default Articlelist;
+export default ArticleList;
