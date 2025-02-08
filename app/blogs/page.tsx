@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 import { client } from "../libs/client";
 import Link from "next/link";
-import BlogLayout from "../../components/parts/Layout";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Header from "../../components/parts/Header";
+import Layout from "../../components/parts/Layout";
 
 const page = () => {
   const [blogs, setBlogs] = useState([]);
@@ -24,15 +24,15 @@ const page = () => {
 
   return (
     <>
-      <Header url={url} />
-      <BlogLayout>
-        <h2 className="text-4xl mb-12 text-center">Blog一覧</h2>
+      <Layout>
+        <Header url={url} />
+        <h2 className="text-4xl mb-10 text-center">Blog一覧</h2>
         <div className="flex flex-wrap gap-4">
           {blogs &&
             blogs.map((blog) => {
               return (
                 <div className="card bg-base-100 w-96 shadow-xl" key={blog.id}>
-                  <Link href={`/blog/${blog.id}`}>
+                  <Link href={`/blogs/${blog.id}`}>
                     <div className="card-body">
                       <h3 className="text-lg mb-4 font-bold">{blog.title}</h3>
                       <div>
@@ -49,7 +49,7 @@ const page = () => {
               );
             })}
         </div>
-      </BlogLayout>
+      </Layout>
     </>
   );
 };

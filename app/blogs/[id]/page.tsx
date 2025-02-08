@@ -40,8 +40,8 @@ const page = () => {
 
   return (
     <>
-      <Header url={null} />
       <BlogLayout>
+        <Header url={null} />
         {blogsData.map((data) => {
           return (
             <div className="max-w-3xl mx-auto" key={data.id}>
