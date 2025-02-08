@@ -24,10 +24,10 @@ const page = () => {
   }, []);
 
   return (
-    <>
+    <div className="bg-[#F1E9DA] pb-20">
+      <Header url={url} />
       <Layout>
-        <Header url={url} />
-        <h2 className="text-4xl mb-10 text-center">Blog一覧</h2>
+        <h2 className="text-4xl mb-10 text-center text-[#75593D]">Blog一覧</h2>
         <div className="flex flex-wrap gap-4">
           {blogs &&
             blogs.map((blog) => {
@@ -52,7 +52,7 @@ const page = () => {
             })}
         </div>
       </Layout>
-    </>
+    </div>
   );
 };
 
