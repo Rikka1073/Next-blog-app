@@ -40,7 +40,9 @@ const ArticleList = () => {
               <Link href={item.url} target="_blank">
                 <Image src={thumbnail} width={384} height={300} className="rounded-t-2xl" alt="" />
                 <div className="card-body">
-                  <h3 className="text-md font-bold">{item.title}</h3>
+                  <h3 className="text-md font-bold" data-testid="title">
+                    {item.title}
+                  </h3>
                 </div>
               </Link>
             </Card>
