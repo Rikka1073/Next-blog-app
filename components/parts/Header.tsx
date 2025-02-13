@@ -8,7 +8,7 @@ const Header = ({ url }: HeaderProps) => {
   return (
     <header className="container mx-auto border-b-2 border-[#75593D] py-6 mb-15">
       <div className="max-w-3xl mx-auto">
-        <div className="flex gap-10 text-xl text-[#75593D]">
+        <div className="flex gap-10 text-xl text-[#75593D] justify-center">
           <Link href="/" className="hover:underline hover:underline-offset-4">
             TOP
           </Link>

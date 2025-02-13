@@ -33,7 +33,7 @@ const ArticleList = () => {
   };
   return (
     <Layout>
-      <div className="flex flex-wrap gap-4 mb-8">
+      <div className="flex flex-wrap gap-4 mb-8 justify-center">
         {data.map((item: item) => {
           return (
             <Card key={item.id}>

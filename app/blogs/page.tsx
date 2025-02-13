@@ -28,7 +28,7 @@ const page = () => {
       <Header url={url} />
       <Layout>
         <h2 className="text-4xl mb-10 text-center text-[#75593D]">Blog一覧</h2>
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-4 justify-center">
           {blogs &&
             blogs.map((blog) => {
               return (

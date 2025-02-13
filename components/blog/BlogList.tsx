@@ -26,7 +26,7 @@ const BlogList = () => {
   return (
     <>
       <Layout>
-        <div className="flex flex-wrap gap-4 mb-8">
+        <div className="flex flex-wrap gap-4 mb-8 justify-center">
           {blogs &&
             blogs.map((blog) => {
               return (
