@@ -2,6 +2,14 @@ import "@testing-library/jest-dom";
 import { render, screen, waitFor } from "@testing-library/react";
 import MainTitle from "../components/MainTitle";
 import ArticleList from "../components/Article/Articlelist";
+import BlogList from "../components/blog/BlogList";
+import { client } from "../app/libs/client";
+
+jest.mock("../app/libs/client", () => ({
+  client: {
+    get: jest.fn(),
+  },
+}));
 
 describe("Title", () => {
   it("メインタイトルがあること", () => {
@@ -46,6 +54,49 @@ describe("Article", () => {
 
     await waitFor(() => {
       expect(screen.getAllByTestId("title")).toHaveLength(2);
+    });
+  });
+
+  it("もっと見るボタンがあること", async () => {
+    render(<ArticleList />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("moreButton")).toBeInTheDocument();
+    });
+    screen.debug();
+  });
+});
+
+describe("Blog", () => {
+  beforeEach(() => {
+    (client.get as jest.Mock).mockResolvedValue({
+      contents: [
+        {
+          id: "1",
+          url: "https://qiita.com",
+          title: "ブログタイトル1",
+        },
+        {
+          id: "2",
+          url: "https://qiita.com",
+          title: "ブログタイトル2",
+        },
+      ],
+    });
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+  it("タイトルがあること", async () => {
+    render(<BlogList />);
+
+    await waitFor(() => {
+      expect(global.fetch).toHaveBeenCalledTimes(1);
+    });
+
+    await waitFor(() => {
+      expect(screen.getAllByTestId("titleBlog")).toHaveLength(2);
     });
   });
 });

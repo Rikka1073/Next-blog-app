@@ -40,7 +40,9 @@ const BlogList = () => {
                       alt=""
                     />
                     <div className="card-body">
-                      <h3 className="text-md font-bold">{blog.title}</h3>
+                      <h3 className="text-md font-bold" data-testid="titleBlog">
+                        {blog.title}
+                      </h3>
                     </div>
                   </Link>
                 </Card>
