@@ -11,8 +11,8 @@ import MoreButton from "../MoreButton";
 const thumbnail = "/img/QiitaThumbnail.png";
 
 const ArticleList = () => {
-  const [data, setData] = useState([]);
   const url = "/articles";
+  const [data, setData] = useState([]);
   console.log(typeof url);
   console.log(url);
 

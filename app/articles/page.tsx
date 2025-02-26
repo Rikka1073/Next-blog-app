@@ -20,11 +20,14 @@ const page = () => {
     };
     fetchQiita();
   }, []);
+
   return (
     <div className="bg-[#F1E9DA] pb-20">
       <Header url={url} />
       <Layout>
-        <h2 className="text-4xl mb-10 text-center text-[#75593D]">Article一覧</h2>
+        <h2 className="text-4xl mb-10 text-center text-[#75593D]" data-testid="articleListTitle">
+          Article一覧
+        </h2>
         <div className="flex flex-wrap gap-4 mb-8 justify-center">
           {data.map((item) => {
             return (

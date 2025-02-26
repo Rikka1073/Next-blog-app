@@ -4,6 +4,8 @@ import MainTitle from "../components/MainTitle";
 import ArticleList from "../components/Article/Articlelist";
 import BlogList from "../components/blog/BlogList";
 import { client } from "../app/libs/client";
+import Blog from "../app/blogs/page";
+import Article from "../app/articles/page";
 
 jest.mock("../app/libs/client", () => ({
   client: {
@@ -63,7 +65,57 @@ describe("Article", () => {
     await waitFor(() => {
       expect(screen.getByTestId("moreButton")).toBeInTheDocument();
     });
-    screen.debug();
+  });
+  // it("もっと見るボタンが押せること", async () => {
+  //   const push = jest.fn();
+  //   (useRouter as jest.Mock).mockReturnValue({ push });
+
+  //   render(<ArticleList />);
+
+  //   const moreButton = screen.getByTestId("moreButton");
+  //   expect(moreButton).toBeInTheDocument();
+
+  //   userEvent.click(moreButton);
+
+  //   await waitFor(() => {
+  //     expect(push).toHaveBeenCalledWith("/articles");
+  //   });
+  //   screen.debug();
+  // });
+});
+
+describe("Article一覧", () => {
+  beforeEach(() => {
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () =>
+          Promise.resolve([
+            {
+              id: "1",
+              url: "https://qiita.com",
+              title: "タイトル",
+            },
+            {
+              id: "2",
+              url: "https://qiita.com",
+              title: "タイトル",
+            },
+          ]),
+      })
+    ) as jest.Mock;
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+  it("タイトルがあること", async () => {
+    render(<Article />);
+
+    await waitFor(() => {
+      expect(global.fetch).toHaveBeenCalledTimes(1);
+    });
+
+    screen.getAllByTestId("articleListTitle");
   });
 });
 
@@ -97,6 +149,40 @@ describe("Blog", () => {
 
     await waitFor(() => {
       expect(screen.getAllByTestId("titleBlog")).toHaveLength(2);
+    });
+  });
+});
+
+describe("Blog一覧", () => {
+  beforeEach(() => {
+    (client.get as jest.Mock).mockResolvedValue({
+      contents: [
+        {
+          id: "1",
+          url: "https://qiita.com",
+          title: "ブログタイトル1",
+        },
+        {
+          id: "2",
+          url: "https://qiita.com",
+          title: "ブログタイトル2",
+        },
+      ],
+    });
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+  it("タイトルがあること", async () => {
+    render(<Blog />);
+
+    await waitFor(() => {
+      expect(global.fetch).toHaveBeenCalledTimes(1);
+    });
+
+    await waitFor(() => {
+      expect(screen.getAllByTestId("blogList-title"));
     });
   });
 });
