@@ -66,22 +66,6 @@ describe("Article", () => {
       expect(screen.getByTestId("moreButton")).toBeInTheDocument();
     });
   });
-  // it("もっと見るボタンが押せること", async () => {
-  //   const push = jest.fn();
-  //   (useRouter as jest.Mock).mockReturnValue({ push });
-
-  //   render(<ArticleList />);
-
-  //   const moreButton = screen.getByTestId("moreButton");
-  //   expect(moreButton).toBeInTheDocument();
-
-  //   userEvent.click(moreButton);
-
-  //   await waitFor(() => {
-  //     expect(push).toHaveBeenCalledWith("/articles");
-  //   });
-  //   screen.debug();
-  // });
 });
 
 describe("Article一覧", () => {
